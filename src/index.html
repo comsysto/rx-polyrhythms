@@ -4,24 +4,112 @@
 <head>
   <meta charset="UTF-8">
   <title>rx-polyrhythms</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: table;
+      margin: 0 auto;
+    }
+
+    .container {
+      height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .sub-container {
+      border: 1px solid #e4e4e4;
+      padding: 20px;
+      border-radius: 3px;
+      box-shadow: 1px 2px 1px #bfb9b9;
+    }
+
+    .main-heading {
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .play,
+    .stop {
+      height: 40px;
+      width: 65px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 5px;
+      position: relative;
+      box-shadow: 0px 0px 3px 2px #cccccc
+    }
+
+    .play:hover {
+      background-color: rgba(232, 22, 50, 0.88);
+      cursor: pointer;
+    }
+
+    .play:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 9.5px;
+      left: 26px;
+      margin: 0 auto;
+      border-style: solid;
+      border-width: 9.5px 0 9.5px 17px;
+      border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+    }
+
+    .stop:hover {
+      background-color: #6d6d6d;
+      cursor: pointer;
+    }
+
+    .stop:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 22px;
+      margin: 0 auto;
+      border: 9px solid white;
+      border-radius: 2px;
+
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <div class="sub-container">
+      <h2 class="main-heading center">rx-polyrhythms</h2>
+      <br>
+      <label>Rhythm 1</label>
+      <input id="rhythm-one" class="rhythm" type="number" value="3" />
+      <br>
+      <label>Rhythm 2</label>
+      <input id="rhythm-two" class="rhythm" type="number" value="4" />
+      <br>
+      <br>
+      <label>BPM (beats per minute)</label>
+      <input type="number" value="100" id="bpm" />
+      <br>
+      <br>
+      <div class="center">
+        <button id="play" class="play center"></button>
 
-  <h2>rx-polyrhythms</h2>
-  <br>
-  <label>Rhythm 1</label>
-  <input id="rhythm-one" class="rhythm" type="number" value="3" />
-  <br>
-  <label>Rhythm 2</label>
-  <input id="rhythm-two" class="rhythm" type="number" value="4" />
-  <br>
-  <br>
-  <label>BPM (beats per minute)</label>
-  <input type="number" value="100" id="bpm" />
-  <br>
-  <br>
-  <button id="play">PLAY</button>
+      </div>
+    </div>
 
 </body>
 
