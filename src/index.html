@@ -35,6 +35,10 @@
       margin-bottom: 5px;
     }
 
+    .mg-top-30 {
+      margin-top: 30px;
+    }
+
     .pos-rel {
       position: relative;
     }
@@ -172,7 +176,6 @@
   <div class="container">
     <div class="sub-container">
       <h2 class="main-heading center">rx-polyrhythms</h2>
-      <br>
 
       <div id="rhythm-one-wrapper" class="pos-rel">
         <span id="rhythm-one-txt" class="pos-abs pos-rhythm txt-style">Rhythm 1</span>
@@ -181,8 +184,6 @@
         <button id="rhythm-one-btn-plus" type="button" class="btn ">+</button>
       </div>
 
-      <br>
-
       <div id="rhythm-two-wrapper" class="pos-rel">
         <span id="rhythm-two-txt" class="pos-abs pos-rhythm txt-style">Rhythm 2</span>
         <button id="rhythm-two-btn-minus" type="button" class="btn btn-left">-</button>
@@ -190,19 +191,13 @@
         <button id="rhythm-two-btn-plus" type="button" class="btn">+</button>
       </div>
 
-      <br>
-      <br>
-
-      <div class="center mg-btm-5 txt-style">BPM (beats per minute)</div>
+      <div class="center mg-btm-5 mg-top-30 txt-style">BPM (beats per minute)</div>
 
       <div id="play-wrapper" class="center">
         <button id="bpm-minus" type="button" class="btn btn-left">-</button>
         <input id="bpm" type="number" value="100" min="0" />
         <button id="bpm-plus" type="button" class="btn ">+</button>
       </div>
-
-      <br>
-      <br>
 
       <div class="center">
         <button id="play" class="play center"></button>
