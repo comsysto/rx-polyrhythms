@@ -69,7 +69,6 @@
 
     .btn-left {
       left: -1px;
-
     }
 
     .txt-style {
@@ -110,7 +109,7 @@
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 5px;
       position: relative;
-      top: 20px;
+      top: 40px;
     }
 
     .play:hover {
@@ -160,11 +159,9 @@
       .stop {
         top: -10px;
       }
-
-      #rhythm-two-text {
-
-        top: -15px;
-        left: 100px;
+      #play {
+        margin-top: 30px;
+        top: -5px;
       }
     }
   </style>
@@ -176,6 +173,7 @@
   <div class="container">
     <div class="sub-container">
       <h2 class="main-heading center">rx-polyrhythms</h2>
+
       <div class="center mg-btm-5 txt-style">Rhythm 1</div>
       <div id="rhythm-one-wrapper" class="pos-rel">
         <button id="rhythm-one-btn-minus" type="button" class="btn btn-left">-</button>
@@ -203,44 +201,23 @@
       </div>
     </div>
     <script>
-      // rhythm one events
-      document.querySelector('#rhythm-one-btn-plus').addEventListener('click', function () {
-        document.querySelector('#rhythm-one').setAttribute('value', parseInt(document.querySelector('#rhythm-one').value) +
-          1);
-        document.querySelector('#rhythm-one').dispatchEvent(new Event('change'));
-      })
-      document.querySelector('#rhythm-one-btn-minus').addEventListener('click', function () {
-        document.querySelector('#rhythm-one').setAttribute('value', parseInt(document.querySelector('#rhythm-one').value) -
-          1
-        );
-        document.querySelector('#rhythm-one').dispatchEvent(new Event('change'));
-      })
+      function addPlusMinusEvent(plusElm, minusElm, resultElm) {
+        document.querySelector(plusElm).addEventListener('click', function () {
+          document.querySelector(resultElm).setAttribute('value', parseInt(document.querySelector(resultElm).value) +
+            1);
+          document.querySelector(resultElm).dispatchEvent(new Event('change'));
+        })
+        document.querySelector(minusElm).addEventListener('click', function () {
+          document.querySelector(resultElm).setAttribute('value', parseInt(document.querySelector(resultElm).value) -
+            1
+          );
+          document.querySelector(resultElm).dispatchEvent(new Event('change'));
+        })
+      }
 
-      // rhythm two events
-      document.querySelector('#rhythm-two-btn-plus').addEventListener('click', function () {
-        document.querySelector('#rhythm-two').setAttribute('value', parseInt(document.querySelector('#rhythm-two').value) +
-          1);
-        document.querySelector('#rhythm-two').dispatchEvent(new Event('change'));
-      })
-      document.querySelector('#rhythm-two-btn-minus').addEventListener('click', function () {
-        document.querySelector('#rhythm-two').setAttribute('value', parseInt(document.querySelector('#rhythm-two').value) -
-          1
-        );
-        document.querySelector('#rhythm-two').dispatchEvent(new Event('change'));
-      })
-
-      // play/stop events
-      document.querySelector('#bpm-plus').addEventListener('click', function () {
-        document.querySelector('#bpm').setAttribute('value', parseInt(document.querySelector('#bpm').value) +
-          1);
-        document.querySelector('#bpm').dispatchEvent(new Event('change'));
-      })
-      document.querySelector('#bpm-minus').addEventListener('click', function () {
-        document.querySelector('#bpm').setAttribute('value', parseInt(document.querySelector('#bpm').value) -
-          1
-        );
-        document.querySelector('#bpm').dispatchEvent(new Event('change'));
-      })
+      addPlusMinusEvent('#rhythm-one-btn-plus', '#rhythm-one-btn-minus', '#rhythm-one');
+      addPlusMinusEvent('#rhythm-two-btn-plus', '#rhythm-two-btn-minus', '#rhythm-two');
+      addPlusMinusEvent('#bpm-plus', '#bpm-minus', '#bpm');
     </script>
 
 
