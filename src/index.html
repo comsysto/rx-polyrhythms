@@ -49,6 +49,7 @@
     }
 
     .btn {
+      font-weight: 600;
       height: 34px;
       width: 30px;
       position: relative;
@@ -58,12 +59,18 @@
     }
 
     .btn:hover {
-      background: #ebeae4;
+      background: #c2c3c645;
       cursor: pointer;
     }
 
     .btn-left {
       left: -1px;
+
+    }
+
+    .txt-style {
+      color: #474747;
+      font-family: sans-serif;
     }
 
     .container {
@@ -149,11 +156,12 @@
       .stop {
         top: -10px;
       }
-      /* #rhythm-two-text {
-        
+
+      #rhythm-two-text {
+
         top: -15px;
         left: 100px;
-      } */
+      }
     }
   </style>
 
@@ -167,7 +175,7 @@
       <br>
 
       <div id="rhythm-one-wrapper" class="pos-rel">
-        <span id="rhythm-one-txt" class="pos-abs">Rhythm 1</span>
+        <span id="rhythm-one-txt" class="pos-abs pos-rhythm txt-style">Rhythm 1</span>
         <button id="rhythm-one-btn-minus" type="button" class="btn btn-left">-</button>
         <input id="rhythm-one" class="rhythm" type="number" value="3" min="0" />
         <button id="rhythm-one-btn-plus" type="button" class="btn ">+</button>
@@ -176,7 +184,7 @@
       <br>
 
       <div id="rhythm-two-wrapper" class="pos-rel">
-        <span id="rhythm-two-txt" class="pos-abs">Rhythm 2</span>
+        <span id="rhythm-two-txt" class="pos-abs pos-rhythm txt-style">Rhythm 2</span>
         <button id="rhythm-two-btn-minus" type="button" class="btn btn-left">-</button>
         <input id="rhythm-two" class="rhythm" type="number" value="4" min="0" />
         <button id="rhythm-two-btn-plus" type="button" class="btn">+</button>
@@ -185,11 +193,11 @@
       <br>
       <br>
 
-      <div class="center mg-btm-5">BPM (beats per minute)</div>
+      <div class="center mg-btm-5 txt-style">BPM (beats per minute)</div>
 
       <div id="play-wrapper" class="center">
         <button id="bpm-minus" type="button" class="btn btn-left">-</button>
-        <input type="number" value="100" id="bpm" min="0" />
+        <input id="bpm" type="number" value="100" min="0" />
         <button id="bpm-plus" type="button" class="btn ">+</button>
       </div>
 
@@ -213,6 +221,7 @@
         );
         document.querySelector('#rhythm-one').dispatchEvent(new Event('change'));
       })
+
       // rhythm two events
       document.querySelector('#rhythm-two-btn-plus').addEventListener('click', function () {
         document.querySelector('#rhythm-two').setAttribute('value', parseInt(document.querySelector('#rhythm-two').value) +
@@ -224,6 +233,19 @@
           1
         );
         document.querySelector('#rhythm-two').dispatchEvent(new Event('change'));
+      })
+
+      // play/stop events
+      document.querySelector('#bpm-plus').addEventListener('click', function () {
+        document.querySelector('#bpm').setAttribute('value', parseInt(document.querySelector('#bpm').value) +
+          1);
+        document.querySelector('#bpm').dispatchEvent(new Event('change'));
+      })
+      document.querySelector('#bpm-minus').addEventListener('click', function () {
+        document.querySelector('#bpm').setAttribute('value', parseInt(document.querySelector('#bpm').value) -
+          1
+        );
+        document.querySelector('#bpm').dispatchEvent(new Event('change'));
       })
     </script>
 
