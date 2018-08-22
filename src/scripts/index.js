@@ -66,5 +66,13 @@ function convertToMs(bpm, rhythms) {
 }
 
 function togglePlayButtonText(playOn) {
-  playButton.innerText = playOn ? 'STOP' : 'PLAY';
+  if (playOn) {
+    //stop icon
+    playButton.classList.remove('play');
+    playButton.classList.add('stop');
+  } else {
+    // play icon
+    playButton.classList.remove('stop');
+    playButton.classList.add('play');
+  }
 }
